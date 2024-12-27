@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+</head>
+<body>
+
+<!-- Login form -->
+<form action="{% url 'credentials:login' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" placeholder="Enter username" name="username"><br>
+    <input type="password" placeholder="Enter password" name="password"><br>
+    <input type="submit">
+</form>
+ <!-- Display error messages -->
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+</body>
+</html>
